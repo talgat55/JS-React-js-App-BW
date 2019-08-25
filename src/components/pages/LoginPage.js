@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import LoginForm from '../forms/LoginForm';
 
-const LoginPage = () => {
+class LoginPage extends React.Component {
     render()
     {
         return (
@@ -12,7 +12,6 @@ const LoginPage = () => {
         );
     }
     ;
-};
-
+}
 
 export default LoginPage;

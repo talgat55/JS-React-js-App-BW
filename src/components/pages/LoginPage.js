@@ -1,6 +1,6 @@
 import React, {Fragment} from 'react';
 import LoginForm from '../forms/LoginForm';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {login}  from '../../actions/auth';
 
@@ -16,13 +16,13 @@ class LoginPage extends React.Component {
             </Fragment>
         );
     };
-};
+}
 
-LoginPage.PropTypes = {
-    history: PropTypes.shape({
-        push: PropTypes.func.isRequired
+LoginPage.propTypes = {
+    history: propTypes.shape({
+        push: propTypes.func.isRequired
     }).isRequired,
-    login: PropTypes.func.isRequired
+    login: propTypes.func.isRequired
 };
 
 

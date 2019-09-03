@@ -36,11 +36,14 @@ class LoginForm extends React.Component {
     render() {
 
         const {data, errors, loading} = this.state;
+
+        console.log(errors);
         return (
             <Form onSubmit={this.onSubmit}   loading={loading}>
-                {errors && (<Message negative>
+                {errors.length && (<Message negative>
                     <Message.Header> Something wrong</Message.Header>
                     <p>{errors.global}</p>
+
                 </Message>)}
                 <Form.Field error={!!errors.email}>
                     <label htmlFor="email">Email</label>

@@ -9,9 +9,14 @@ import thunk from 'redux-thunk';
 import {Provider}  from 'react-redux';
 import rootReducer from './rootReducer';
 import {composeWithDevTools} from 'redux-devtools-extension';
+import {userLoggedIn} from "./actions/auth";
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
+if(localStorage.bookworkJWT){
+    const user = { token: localStorage.bookworkJWT};
+    store.dispatch(userLoggedIn(user));
+}
 ReactDOM.render(<BrowserRouter>
     <Provider store={store}>
         <App/>

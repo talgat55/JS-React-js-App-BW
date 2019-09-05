@@ -12,6 +12,11 @@ module.exports = (sequelize, DataTypes) => {
     User.associate = function (models) {
         // associations can be defined here
     };
+    User.beforeSave((user) => {
+        if (user.changed('password')) {
+            user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
+        }
+    });
     User.prototype.isValidPassword = function (password) {
         return bcrypt.compare(password, this.password);
     };
